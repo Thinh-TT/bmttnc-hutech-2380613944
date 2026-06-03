@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Vigenere Cipher</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h2 class="text-center mt-4">VIGENERE CIPHER</h2>
+
+    <hr>
+
+    <h4 class="text-primary">Encryption</h4>
+
+    <form method="POST" action="/vigenere/encrypt">
+
+        <div class="form-group">
+            <label>Plain Text</label>
+            <input type="text"
+                   class="form-control"
+                   name="inputPlainText"
+                   required>
+        </div>
+
+        <div class="form-group">
+            <label>Key</label>
+            <input type="text"
+                   class="form-control"
+                   name="inputKey"
+                   required>
+        </div>
+
+        <button class="btn btn-success">
+            Encrypt
+        </button>
+
+    </form>
+
+    <hr>
+
+    <h4 class="text-primary">Decryption</h4>
+
+    <form method="POST" action="/vigenere/decrypt">
+
+        <div class="form-group">
+            <label>Cipher Text</label>
+            <input type="text"
+                   class="form-control"
+                   name="inputCipherText"
+                   required>
+        </div>
+
+        <div class="form-group">
+            <label>Key</label>
+            <input type="text"
+                   class="form-control"
+                   name="inputKey"
+                   required>
+        </div>
+
+        <button class="btn btn-danger">
+            Decrypt
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

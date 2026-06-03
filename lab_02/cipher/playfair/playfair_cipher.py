@@ -6,6 +6,10 @@ class PlayFairCipher:
         pass
 
     def create_playfair_matrix(self, key):
+
+        if not key.isalpha():
+            raise ValueError("khoa phai la ky tu chu.")
+
         key = key.replace("J", "I")  # Chuyển "J" thành "I" trong khóa
         key = key.upper()
         key_set = set(key)
