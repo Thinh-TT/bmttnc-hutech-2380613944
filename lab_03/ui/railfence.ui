@@ -23,10 +23,15 @@
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>20</y>
-      <width>271</width>
-      <height>21</height>
+      <y>40</y>
+      <width>281</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>18</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>RAIL FENCE CIPHER</string>
@@ -36,9 +41,9 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>70</y>
-      <width>81</width>
-      <height>16</height>
+      <y>100</y>
+      <width>91</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -54,9 +59,9 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>170</y>
-      <width>81</width>
-      <height>21</height>
+      <y>200</y>
+      <width>91</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -72,9 +77,9 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>290</y>
-      <width>81</width>
-      <height>16</height>
+      <y>300</y>
+      <width>91</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -89,9 +94,9 @@
    <widget class="QTextEdit" name="textPlainText">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>70</y>
-      <width>421</width>
+      <x>180</x>
+      <y>100</y>
+      <width>401</width>
       <height>64</height>
      </rect>
     </property>
@@ -99,9 +104,9 @@
    <widget class="QTextEdit" name="textKey">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>180</y>
-      <width>421</width>
+      <x>180</x>
+      <y>200</y>
+      <width>401</width>
       <height>64</height>
      </rect>
     </property>
@@ -109,9 +114,9 @@
    <widget class="QTextEdit" name="textCipherText">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>290</y>
-      <width>421</width>
+      <x>180</x>
+      <y>300</y>
+      <width>401</width>
       <height>64</height>
      </rect>
     </property>
@@ -119,11 +124,16 @@
    <widget class="QPushButton" name="pushEncrypt">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>180</x>
       <y>390</y>
       <width>111</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>18</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Encrypt</string>
@@ -138,8 +148,31 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string>Decrypt</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>421</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Tran Truong Thinh - 2380613944</string>
     </property>
    </widget>
   </widget>

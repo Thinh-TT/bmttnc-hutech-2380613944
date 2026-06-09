@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>883</width>
     <height>600</height>
    </rect>
   </property>
@@ -23,10 +23,15 @@
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>20</y>
-      <width>271</width>
-      <height>21</height>
+      <y>50</y>
+      <width>281</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>18</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>VIGENERE CIPHER</string>
@@ -35,10 +40,10 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>70</y>
-      <width>81</width>
-      <height>16</height>
+      <x>20</x>
+      <y>110</y>
+      <width>91</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -53,10 +58,10 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>170</y>
-      <width>81</width>
-      <height>21</height>
+      <x>20</x>
+      <y>210</y>
+      <width>91</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -71,10 +76,10 @@
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>290</y>
-      <width>81</width>
-      <height>16</height>
+      <x>20</x>
+      <y>310</y>
+      <width>91</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
@@ -90,7 +95,7 @@
     <property name="geometry">
      <rect>
       <x>160</x>
-      <y>70</y>
+      <y>110</y>
       <width>421</width>
       <height>64</height>
      </rect>
@@ -100,7 +105,7 @@
     <property name="geometry">
      <rect>
       <x>160</x>
-      <y>180</y>
+      <y>210</y>
       <width>421</width>
       <height>64</height>
      </rect>
@@ -110,7 +115,7 @@
     <property name="geometry">
      <rect>
       <x>160</x>
-      <y>290</y>
+      <y>310</y>
       <width>421</width>
       <height>64</height>
      </rect>
@@ -120,10 +125,15 @@
     <property name="geometry">
      <rect>
       <x>160</x>
-      <y>390</y>
+      <y>400</y>
       <width>111</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>18</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Encrypt</string>
@@ -133,13 +143,36 @@
     <property name="geometry">
      <rect>
       <x>470</x>
-      <y>390</y>
+      <y>400</y>
       <width>111</width>
       <height>41</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string>Decrypt</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>421</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Tran Truong Thinh - 2380613944</string>
     </property>
    </widget>
   </widget>
@@ -148,7 +181,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>883</width>
      <height>33</height>
     </rect>
    </property>
