@@ -10,8 +10,21 @@ class MyApp(QMainWindow):
         self.ui.setupUi(self)
         self.ui.pushEncrypt.clicked.connect(self.call_api_encrypt)
         self.ui.pushDecrypt.clicked.connect(self.call_api_decrypt)
+       
+    def validate_key(self):
+        key = self.ui.textKey.toPlainText()
+        if not key.isdigit():
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Warning)
+            msg.setWindowTitle("Invalid Key")
+            msg.setText("Key must contain only numeric characters (0-9).")
+            msg.exec_()
+            return False
+        return True
 
     def call_api_encrypt(self):
+        if not self.validate_key():
+            return
         url = "http://127.0.0.1:5000/api/railfence/encrypt"
         payload = {
             "plain_text": self.ui.textPlainText.toPlainText(),
@@ -28,11 +41,21 @@ class MyApp(QMainWindow):
                 msg.setText("Encrypted Successfully")
                 msg.exec_()
             else:
-                print("Error while calling API")
+                msg = QMessageBox()
+                msg.setIcon(QMessageBox.Warning)
+                msg.setWindowTitle("Error")
+                msg.setText("Error while calling API")
+                msg.exec_()
         except requests.exceptions.RequestException as e:
-            print("Error: %s" % e.message)
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Critical)
+            msg.setWindowTitle("Connection Error")
+            msg.setText(f"Could not connect to server: {str(e)}")
+            msg.exec_()
 
     def call_api_decrypt(self):
+        if not self.validate_key():
+            return
         url = "http://127.0.0.1:5000/api/railfence/decrypt"
         payload = {
             "cipher_text": self.ui.textCipherText.toPlainText(),
@@ -49,9 +72,17 @@ class MyApp(QMainWindow):
                 msg.setText("Decrypted Successfully")
                 msg.exec_()
             else:
-                print("Error while calling API")
+                msg = QMessageBox()
+                msg.setIcon(QMessageBox.Warning)
+                msg.setWindowTitle("Error")
+                msg.setText("Error while calling API")
+                msg.exec_()
         except requests.exceptions.RequestException as e:
-            print("Error: %s" % e.message)
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Critical)
+            msg.setWindowTitle("Connection Error")
+            msg.setText(f"Could not connect to server: {str(e)}")
+            msg.exec_()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

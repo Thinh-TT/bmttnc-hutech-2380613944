@@ -12,7 +12,20 @@ class MyApp(QMainWindow):
         self.ui.pushDecrypt.clicked.connect(self.call_api_decrypt)
         self.ui.pushCreateMatrix.clicked.connect(self.call_api_create_matrix)
 
+    def validate_key(self):
+        key = self.ui.textKey.toPlainText()
+        if not key.isalpha():
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Warning)
+            msg.setWindowTitle("Invalid Key")
+            msg.setText("Key must contain only alphabetic characters (a-z, A-Z).")
+            msg.exec_()
+            return False
+        return True
+
     def call_api_encrypt(self):
+        if not self.validate_key():
+            return
         url = "http://127.0.0.1:5000/api/playfair/encrypt"
         payload = {
             "plain_text": self.ui.textPlainText.toPlainText(),
@@ -29,11 +42,21 @@ class MyApp(QMainWindow):
                 msg.setText("Encrypted Successfully")
                 msg.exec_()
             else:
-                print("Error while calling API")
+                msg = QMessageBox()
+                msg.setIcon(QMessageBox.Warning)
+                msg.setWindowTitle("Error")
+                msg.setText("Error while calling API")
+                msg.exec_()
         except requests.exceptions.RequestException as e:
-            print("Error: %s" % e.message)
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Critical)
+            msg.setWindowTitle("Connection Error")
+            msg.setText(f"Could not connect to server: {str(e)}")
+            msg.exec_()
 
     def call_api_decrypt(self):
+        if not self.validate_key():
+            return
         url = "http://127.0.0.1:5000/api/playfair/decrypt"
         payload = {
             "cipher_text": self.ui.textCipherText.toPlainText(),
@@ -50,11 +73,21 @@ class MyApp(QMainWindow):
                 msg.setText("Decrypted Successfully")
                 msg.exec_()
             else:
-                print("Error while calling API")
+                msg = QMessageBox()
+                msg.setIcon(QMessageBox.Warning)
+                msg.setWindowTitle("Error")
+                msg.setText("Error while calling API")
+                msg.exec_()
         except requests.exceptions.RequestException as e:
-            print("Error: %s" % e.message)
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Critical)
+            msg.setWindowTitle("Connection Error")
+            msg.setText(f"Could not connect to server: {str(e)}")
+            msg.exec_()
 
     def call_api_create_matrix(self):
+        if not self.validate_key():
+            return
         url = "http://127.0.0.1:5000/api/playfair/creatematrix"
         payload = {
             "key": self.ui.textKey.toPlainText()
@@ -73,9 +106,17 @@ class MyApp(QMainWindow):
                 msg.setText("Matrix Created Successfully")
                 msg.exec_()
             else:
-                print("Error while calling API")
+                msg = QMessageBox()
+                msg.setIcon(QMessageBox.Warning)
+                msg.setWindowTitle("Error")
+                msg.setText("Error while calling API")
+                msg.exec_()
         except requests.exceptions.RequestException as e:
-            print("Error: %s" % e.message)
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Critical)
+            msg.setWindowTitle("Connection Error")
+            msg.setText(f"Could not connect to server: {str(e)}")
+            msg.exec_()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
