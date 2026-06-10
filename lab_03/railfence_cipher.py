@@ -11,23 +11,34 @@ class MyApp(QMainWindow):
         self.ui.pushEncrypt.clicked.connect(self.call_api_encrypt)
         self.ui.pushDecrypt.clicked.connect(self.call_api_decrypt)
        
-    def validate_key(self):
+    def validate_key(self, text_length):
         key = self.ui.textKey.toPlainText()
+        
         if not key.isdigit():
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Warning)
-            msg.setWindowTitle("Invalid Key")
-            msg.setText("Key must contain only numeric characters (0-9).")
-            msg.exec_()
+            QMessageBox.warning(self, "Khoa khong hop le", "Khoa phai la so nguyen.")
             return False
+        
+        key = int(key)
+        
+        if key <= 1:
+            QMessageBox.warning(self, "Khoa khong hop le", "Khoa phai lon hon 1.")
+            return False
+            
+        if key >= text_length:
+            QMessageBox.warning(self, "Khoa khong hop le", "Khoa phai nho hon do dai chuoi van ban.")
+            return False
+
         return True
 
     def call_api_encrypt(self):
-        if not self.validate_key():
+        plaintext = self.ui.textPlainText.toPlainText()
+        
+        if not self.validate_key(len(plaintext)):
             return
+            
         url = "http://127.0.0.1:5000/api/railfence/encrypt"
         payload = {
-            "plain_text": self.ui.textPlainText.toPlainText(),
+            "plain_text": plaintext,
             "key": self.ui.textKey.toPlainText()
         }
         try:
@@ -54,11 +65,14 @@ class MyApp(QMainWindow):
             msg.exec_()
 
     def call_api_decrypt(self):
-        if not self.validate_key():
+        ciphertext = self.ui.textCipherText.toPlainText()
+        
+        if not self.validate_key(len(ciphertext)):
             return
+            
         url = "http://127.0.0.1:5000/api/railfence/decrypt"
         payload = {
-            "cipher_text": self.ui.textCipherText.toPlainText(),
+            "cipher_text": ciphertext,
             "key": self.ui.textKey.toPlainText()
         }
         try:

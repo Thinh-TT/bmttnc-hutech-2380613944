@@ -72,7 +72,6 @@ def railfence_decrypt():
 def playfair():
     return render_template('playfair.html')
 
-
 @app.route("/playfair/encrypt", methods=['POST'])
 def playfair_encrypt():
     text = only_letters(request.form['inputPlainText'])

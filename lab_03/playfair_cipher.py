@@ -18,7 +18,7 @@ class MyApp(QMainWindow):
             msg = QMessageBox()
             msg.setIcon(QMessageBox.Warning)
             msg.setWindowTitle("Invalid Key")
-            msg.setText("Key must contain only alphabetic characters (a-z, A-Z).")
+            msg.setText("Khoa phai la chu (a-z, A-Z).")
             msg.exec_()
             return False
         return True

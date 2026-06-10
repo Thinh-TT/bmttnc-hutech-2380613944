@@ -14,11 +14,12 @@ class MyApp(QMainWindow):
     def validate_key(self):
         key = self.ui.textKey.toPlainText()
         if not key.isdigit():
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Warning)
-            msg.setWindowTitle("Invalid Key")
-            msg.setText("Key must contain only numeric characters (0-9).")
-            msg.exec_()
+            QMessageBox.warning(self,"Khoa khong hop le","Khoa chi la so nguyen tu 1 - 25")
+            return False
+        key = int(key)
+
+        if key <1 or key > 25:
+            QMessageBox.warning(self,"Khoa khong hop le","Khoa chi la so nguyen tu 1 - 25")
             return False
         return True
 
